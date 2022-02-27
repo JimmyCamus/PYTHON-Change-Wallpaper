@@ -1,1 +1,5 @@
 .env
+utils/__pycache__/
+models/__pycache__/
+containers/__pycache__/
+db/*.json

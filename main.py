@@ -1,18 +1,12 @@
-import os
-from dotenv import load_dotenv
-import ctypes
+from utils.change_wallpaper import change_wallpaper
+from utils.handle_db import read_data
+from utils.menu_manager import menu_navigation
 
 
-class Main (object):
-    def __init__(self):
-        load_dotenv()
-        
-        file_name = input("Enter the file name: ")
-        gallery_path = os.getenv("WALLPAPER_PATH")
-        file_formater = os.getenv("IMAGE_FORMATER")
-
-        path = f"{gallery_path}{file_name}.{file_formater}"
-        ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 1)
+def main():
+    change_wallpaper()
 
 
-Main()
+if __name__ == '__main__':
+    container = read_data()
+    menu_navigation(container)
