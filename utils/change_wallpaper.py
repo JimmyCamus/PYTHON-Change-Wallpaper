@@ -8,5 +8,5 @@ def change_wallpaper(file_name):
     gallery_path = os.getenv("WALLPAPER_PATH")
     file_formater = os.getenv("IMAGE_FORMATER")
     path = f"{gallery_path}{file_name}.{file_formater}"
-
-    ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 1)
+    print(f"gsettings set org.gnome.desktop.background picture-uri file://{path}")
+    os.system(f"gsettings set org.gnome.desktop.background picture-uri file://{path}")
